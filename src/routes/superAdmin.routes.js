@@ -1,0 +1,28 @@
+import { Router } from 'express';
+import { body, param, query } from 'express-validator';
+import { validate } from '../middlewares/validation.js';
+import { authenticate, onlySuperAdmin } from '../middlewares/auth.js';
+import * as sa from '../controllers/superAdmin.controller.js';
+
+const router = Router();
+
+router.use(authenticate, onlySuperAdmin);
+
+router.post(
+  '/admins',
+  [body('name').notEmpty(), body('email').isEmail()],
+  validate,
+  sa.createAdmin
+);
+
+router.get('/admins', [query('page').optional().isInt({ min: 1 }), query('limit').optional().isInt({ min: 1 })], validate, sa.listAdmins);
+
+router.get('/admins/:id', [param('id').isMongoId()], validate, sa.getAdminById);
+
+router.put('/admins/:id', [param('id').isMongoId()], validate, sa.updateAdmin);
+
+router.delete('/admins/:id', [param('id').isMongoId()], validate, sa.deleteAdmin);
+
+export default router;
+
+
