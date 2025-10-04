@@ -14,26 +14,58 @@
             "header": [
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "url": { "raw": "http://localhost:5000/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","auth","login"] },
-            "body": { "mode": "raw", "raw": "{\n  \"registerId\": \"SA001\",\n  \"password\": \"SA001\",\n  \"userType\": \"superadmin\"\n}" }
+            "url": {
+              "raw": "http://localhost:5000/api/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "auth", "login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"registerId\": \"SA001\",\n  \"password\": \"SA001\",\n  \"userType\": \"superadmin\"\n}"
+            }
           }
         },
         {
           "name": "Forgot Password",
           "request": {
             "method": "POST",
-            "header": [ { "key": "Content-Type", "value": "application/json" } ],
-            "url": { "raw": "http://localhost:5000/api/auth/forgot-password", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","auth","forgot-password"] },
-            "body": { "mode": "raw", "raw": "{\n  \"email\": \"user@example.com\",\n  \"userType\": \"student\"\n}" }
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/auth/forgot-password",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "auth", "forgot-password"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"userType\": \"student\"\n}"
+            }
           }
         },
         {
           "name": "Change Password",
           "request": {
             "method": "PUT",
-            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ],
-            "url": { "raw": "http://localhost:5000/api/auth/change-password", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","auth","change-password"] },
-            "body": { "mode": "raw", "raw": "{\n  \"currentPassword\": \"SA001\",\n  \"newPassword\": \"NewPass123\",\n  \"confirmPassword\": \"NewPass123\"\n}" }
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/auth/change-password",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "auth", "change-password"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"SA001\",\n  \"newPassword\": \"NewPass123\",\n  \"confirmPassword\": \"NewPass123\"\n}"
+            }
           }
         }
       ]
@@ -45,17 +77,78 @@
           "name": "Create Admin",
           "request": {
             "method": "POST",
-            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ],
-            "url": { "raw": "http://localhost:5000/api/super-admin/admins", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","super-admin","admins"] },
-            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Admin One\",\n  \"email\": \"admin1@example.com\",\n  \"age\": 35,\n  \"gender\": \"Male\",\n  \"mobile\": \"9000000000\",\n  \"alternateMobile\": \"9111111111\",\n  \"address\": \"Hyderabad\",\n  \"alternateAddress\": \"Hyderabad 2\",\n  \"expiry\": \"2030-12-31\",\n  \"position\": \"Branch Admin\",\n  \"hosteler\": false,\n  \"salary\": 50000,\n  \"dateOfJoining\": \"2024-06-01\"\n}" }
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/super-admin/admins",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "super-admin", "admins"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Admin One\",\n  \"email\": \"admin1@example.com\",\n  \"age\": 35,\n  \"gender\": \"Male\",\n  \"mobile\": \"9000000000\",\n  \"alternateMobile\": \"9111111111\",\n  \"address\": \"Hyderabad\",\n  \"alternateAddress\": \"Hyderabad 2\",\n  \"expiry\": \"2030-12-31\",\n  \"position\": \"Branch Admin\",\n  \"hosteler\": false,\n  \"salary\": 50000,\n  \"dateOfJoining\": \"2024-06-01\"\n}"
+            }
           }
         },
         {
           "name": "List Admins",
           "request": {
             "method": "GET",
-            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
-            "url": { "raw": "http://localhost:5000/api/super-admin/admins?page=1&limit=10", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","super-admin","admins"], "query": [ {"key":"page","value":"1"}, {"key":"limit","value":"10"} ] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/super-admin/admins?page=1&limit=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "super-admin", "admins"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Upsert Attendance Config",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/super-admin/attendance/config",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "super-admin", "attendance", "config"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lat\": 17.3850,\n  \"lon\": 78.4867,\n  \"radiusMeters\": 150,\n  \"windowStartMinutes\": 480,\n  \"windowEndMinutes\": 600,\n  \"isEnabled\": true\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Attendance Config",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/super-admin/attendance/config",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "super-admin", "attendance", "config"]
+            }
           }
         }
       ]
@@ -67,18 +160,42 @@
           "name": "Create Teacher",
           "request": {
             "method": "POST",
-            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ],
-            "url": { "raw": "http://localhost:5000/api/admin/teachers", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","admin","teachers"] },
-            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Teacher One\",\n  \"email\": \"teach1@example.com\",\n  \"age\": 30,\n  \"gender\": \"Female\",\n  \"mobile\": \"9666666666\",\n  \"alternateMobile\": \"9777777777\",\n  \"address\": \"Hyderabad\",\n  \"alternateAddress\": \"Hyderabad 2\",\n  \"subject\": [\"Maths\", \"Physics\"],\n  \"qualification\": \"M.Sc\",\n  \"dateOfJoining\": \"2023-06-01\",\n  \"salary\": 45000,\n  \"experience\": 5,\n  \"hosteler\": false,\n  \"class\": \"teaching\",\n  \"cast\": \"OC\",\n  \"religion\": \"Hindu\",\n  \"married\": true\n}" }
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/admin/teachers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "admin", "teachers"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Teacher One\",\n  \"email\": \"teach1@example.com\",\n  \"age\": 30,\n  \"gender\": \"Female\",\n  \"mobile\": \"9666666666\",\n  \"alternateMobile\": \"9777777777\",\n  \"address\": \"Hyderabad\",\n  \"alternateAddress\": \"Hyderabad 2\",\n  \"subject\": [\"Maths\", \"Physics\"],\n  \"qualification\": \"M.Sc\",\n  \"dateOfJoining\": \"2023-06-01\",\n  \"salary\": 45000,\n  \"experience\": 5,\n  \"hosteler\": false,\n  \"class\": \"teaching\",\n  \"cast\": \"OC\",\n  \"religion\": \"Hindu\",\n  \"married\": true\n}"
+            }
           }
         },
         {
           "name": "Create Student",
           "request": {
             "method": "POST",
-            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ],
-            "url": { "raw": "http://localhost:5000/api/admin/students", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","admin","students"] },
-            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Student One\",\n  \"email\": \"stu1@example.com\",\n  \"rollNumber\": \"R001\",\n  \"age\": 19,\n  \"gender\": \"Male\",\n  \"mobile\": \"9888888888\",\n  \"dateOfRegistration\": \"2024-06-10\",\n  \"dateOfBirth\": \"2005-05-01\",\n  \"batch\": \"2024\",\n  \"section\": \"A\",\n  \"cast\": \"OC\",\n  \"religion\": \"Hindu\",\n  \"year\": \"1st\",\n  \"photo\": \"https://example.com/photo.jpg\",\n  \"address\": \"Hyderabad\",\n  \"alternateAddress\": \"Hyderabad 2\",\n  \"parentName\": \"Parent One\",\n  \"parentMobile\": \"9777777777\",\n  \"parentAlternateMobile\": \"9666666666\",\n  \"parentOccupation\": \"Engineer\",\n  \"hosteler\": false,\n  \"regular\": true\n}" }
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/admin/students",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "admin", "students"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Student One\",\n  \"email\": \"stu1@example.com\",\n  \"rollNumber\": \"R001\",\n  \"age\": 19,\n  \"gender\": \"Male\",\n  \"mobile\": \"9888888888\",\n  \"dateOfRegistration\": \"2024-06-10\",\n  \"dateOfBirth\": \"2005-05-01\",\n  \"batch\": \"2024\",\n  \"section\": \"A\",\n  \"cast\": \"OC\",\n  \"religion\": \"Hindu\",\n  \"year\": \"1st\",\n  \"photo\": \"https://example.com/photo.jpg\",\n  \"address\": \"Hyderabad\",\n  \"alternateAddress\": \"Hyderabad 2\",\n  \"parentName\": \"Parent One\",\n  \"parentMobile\": \"9777777777\",\n  \"parentAlternateMobile\": \"9666666666\",\n  \"parentOccupation\": \"Engineer\",\n  \"hosteler\": false,\n  \"regular\": true\n}"
+            }
           }
         }
       ]
@@ -90,9 +207,77 @@
           "name": "Create Student",
           "request": {
             "method": "POST",
-            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ],
-            "url": { "raw": "http://localhost:5000/api/teacher/students", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","teacher","students"] },
-            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Student T\",\n  \"email\": \"stut@example.com\",\n  \"rollNumber\": \"R100\"\n}" }
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/teacher/students",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "teacher", "students"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Student T\",\n  \"email\": \"stut@example.com\",\n  \"rollNumber\": \"R100\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Open Attendance Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/teacher/attendance/sessions",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "teacher", "attendance", "sessions"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"CSE-A Data Structures\",\n  \"lat\": 17.385,\n  \"lon\": 78.4867,\n  \"radiusMeters\": 50,\n  \"openAt\": \"2025-10-01T09:00:00.000Z\",\n  \"closeAt\": \"2025-10-01T09:10:00.000Z\",\n  \"batch\": \"2024\",\n  \"section\": \"A\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Close Attendance Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/teacher/attendance/sessions/{{sessionId}}/close",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "teacher", "attendance", "sessions", "{{sessionId}}", "close"]
+            }
+          }
+        },
+        {
+          "name": "List Attendance Sessions",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/teacher/attendance/sessions?active=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "teacher", "attendance", "sessions"],
+              "query": [
+                { "key": "active", "value": "true" }
+              ]
+            }
           }
         }
       ]
@@ -104,14 +289,65 @@
           "name": "Get Profile",
           "request": {
             "method": "GET",
-            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
-            "url": { "raw": "http://localhost:5000/api/student/profile", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","student","profile"] }
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/student/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "student", "profile"]
+            }
+          }
+        },
+        {
+          "name": "Mark Daily Attendance",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/student/attendance/daily",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "student", "attendance", "daily"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lat\": 17.385,\n  \"lon\": 78.4867\n}"
+            }
+          }
+        },
+        {
+          "name": "Mark Session Attendance",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:5000/api/student/attendance/session/{{sessionId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "student", "attendance", "session", "{{sessionId}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lat\": 17.385,\n  \"lon\": 78.4867\n}"
+            }
           }
         }
       ]
     }
   ],
-  "variable": [ { "key": "token", "value": "" } ]
+  "variable": [
+    { "key": "token", "value": "" },
+    { "key": "sessionId", "value": "" }
+  ]
 }
-
-

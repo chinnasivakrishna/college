@@ -74,3 +74,34 @@ export async function deleteAdmin(req, res, next) {
 }
 
 
+// Attendance Config
+import AttendanceConfig from '../models/AttendanceConfig.js';
+
+export async function upsertAttendanceConfig(req, res, next) {
+  try {
+    const { lat, lon, radiusMeters, windowStartMinutes, windowEndMinutes, isEnabled } = req.body;
+    const update = {
+      center: { lat, lon },
+      radiusMeters,
+    };
+    if (typeof windowStartMinutes === 'number') update.windowStartMinutes = windowStartMinutes;
+    if (typeof windowEndMinutes === 'number') update.windowEndMinutes = windowEndMinutes;
+    if (typeof isEnabled === 'boolean') update.isEnabled = isEnabled;
+    update.updatedBy = req.user.id;
+
+    const doc = await AttendanceConfig.findOneAndUpdate({}, update, { new: true, upsert: true, setDefaultsOnInsert: true });
+    return res.status(200).json({ success: true, message: 'Attendance config saved', data: doc, error: {} });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function getAttendanceConfig(req, res, next) {
+  try {
+    const doc = await AttendanceConfig.findOne({}).sort({ updatedAt: -1 });
+    if (!doc) return res.status(404).json({ success: false, message: 'No config found', data: {}, error: {} });
+    return res.status(200).json({ success: true, message: 'Attendance config', data: doc, error: {} });
+  } catch (err) {
+    next(err);
+  }
+}
